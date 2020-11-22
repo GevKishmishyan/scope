@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css">
+
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="bg-white border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading"><h4>Scope</h4></div>
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action bg-white"><img src="../../upload/{{currentUser.profilePicture}}"></a>
+      <a class="list-group-item list-group-item-action bg-white"><h3>{{currentUser.name + ' ' + currentUser.surname}}</h3></a>
+      <a routerLink="/projects" *ngIf="currentUser.role == 'TEAM_LEADER'" class="list-group-item list-group-item-action bg-white"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a routerLink="/members" *ngIf="currentUser.role == 'TEAM_LEADER'" class="list-group-item list-group-item-action bg-white"><i class="fas fa-users"></i>Users</a>
+      <a routerLink="/logs" *ngIf="currentUser.role == 'TEAM_MEMBER'" class="list-group-item list-group-item-action bg-white"><i class="fas fa-users"></i>   Logs</a>
+      <a routerLink="/my-projects" *ngIf="currentUser.role == 'TEAM_MEMBER'" class="list-group-item list-group-item-action bg-white"><i class="fas fa-project-diagram"></i>   Projects</a>
+      <a routerLink="/upload" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-upload"></i>   Upload</a>
+      <a (click)="logout()" class="list-group-item list-group-item-action bg-white"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row" style="margin-top: 50px">
+        <div class="col-md-4">
+          <div class="input-group mb-3">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" (change)="onFileSelected($event)">
+              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <button type="submit" class="btn btn-primary" (click)="upload()">Upload Photo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->

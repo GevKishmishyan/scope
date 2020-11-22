@@ -1,0 +1,55 @@
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="bg-white border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading"><h4>Scope</h4></div>
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action bg-white"><img src="../../upload/{{currentUser.profilePicture}}"></a>
+      <a class="list-group-item list-group-item-action bg-white"><h3>{{currentUser.name + ' ' + currentUser.surname}}</h3></a>
+      <a routerLink="/projects" class="list-group-item list-group-item-action bg-white"><i class="fas fa-project-diagram"></i>   Projects</a>
+      <a routerLink="/members" class="list-group-item list-group-item-action bg-dark text-light"><i class="fas fa-users"></i>   Users</a>
+      <a routerLink="/upload" class="list-group-item list-group-item-action bg-white"><i class="fas fa-upload"></i>   Upload</a>
+      <a (click)="logout()" class="list-group-item list-group-item-action bg-white"><i class="fas fa-sign-out-alt"></i>  Logout</a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row" style="margin-top: 10px">
+        <div class="col-md-12">
+          <table mdbTable #tableEl="mdbTable" class="z-depth-1">
+            <thead>
+            <tr>
+              <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let el of users; let i = index">
+              <th>{{el.id}}</th>
+              <th>
+                <img src="../../upload/{{el.profilePicture}}" alt="{{el.id}}" style="width: 30px; height: 30px; border-radius: 20px">
+              </th>
+              <th>{{el.name}}</th>
+              <th>{{el.surname}}</th>
+              <th>{{el.email}}</th>
+            </tr>
+            </tbody>
+            <tfoot class="grey lighten-5 w-100">
+            <tr>
+              <td colspan="5">
+                <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="users"></mdb-table-pagination>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->

@@ -1,0 +1,40 @@
+<div class="w-100 h-100 signup" style="padding: 100px">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-md-center text-white" style="font-size: 48px">Welcome to Scope...</h2>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 30px">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 bg-white" style="padding: 30px; border-radius: 5px">
+        <h3 class="text-md-center text-dark">Sign In</h3>
+        <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+          <div class="form-group">
+            <label class="text-dark" for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   placeholder="Enter email" formControlName="email">
+            <small id="emailHelp" class="form-text text-dark text-muted">We'll never share your email with anyone
+              else.</small>
+          </div>
+          <div class="form-group">
+            <label class="text-dark" for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                   formControlName="password">
+          </div>
+          <input type="submit" value="Sign In" class="btn btn-success btn-block">
+        </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <hr class="text-white bg-white w-100">
+        <h5 class="text-white text-center">Don't have an account?</h5>
+        <button type="submit" class="btn btn-danger btn-block" routerLink="/signup">Sign Up</button>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>
